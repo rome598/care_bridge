@@ -37,6 +37,7 @@ gem "bootsnap", require: false
 gem 'bootstrap', '~> 5.3', '>= 5.3.3'
 gem 'cssbundling-rails'
 gem 'autoprefixer-rails'
+gem 'devise', '~> 4.9', '>= 4.9.4'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
