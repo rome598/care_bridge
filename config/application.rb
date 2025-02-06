@@ -23,5 +23,8 @@ module CareBridge
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.sass.quiet_deps = true
+    config.sass.silence_deprecations = ['import']
   end
 end

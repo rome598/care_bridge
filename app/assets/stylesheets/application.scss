@@ -1,2 +1,101 @@
-// Entry point for your Sass build
+// application.scss
+
+// Si estás utilizando variables de Bootstrap personalizadas, configúralas aquí antes de importar Bootstrap
 @import "bootstrap";
+
+// Importa otros estilos personalizados si es necesario
+// @import "custom-styles";
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .form-container {
+    width: 60%; /* 60% de la sección del formulario */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Borde a relieve sutil */
+    text-align: center;
+  }
+  
+  .image-container {
+    width: 35%; /* Imagen ocupando 35% de la sección */
+  }
+  
+  .signup-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .form-floating {
+    position: relative;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 12px 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: 2px solid #ccc; /* Solo el borde inferior */
+    border-radius: 0;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #FF5B5B; /* Color del borde cuando el input está enfocado */
+    box-shadow: none; /* Eliminamos el resalte azul del borde */
+  }
+  
+  label {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    color: #aaa;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .form-control:focus ~ label,
+  .form-control:not(:placeholder-shown) ~ label {
+    top: -8px;
+    font-size: 0.85rem;
+    color: #FF5B5B; /* Color del label al enfocar */
+    transform: translateY(-100%);
+  }
+  
+  .suggestion-text {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  .btn-submit {
+    background-color: #FF5B5B; /* Color de fondo del botón */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: rgb(253, 100, 100);
+    color: rgb(185, 160, 160);
+  }
+
+  .text-custom {
+    color: #FF5B5B;
+  }

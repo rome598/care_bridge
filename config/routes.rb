@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions', 
+    registrations: 'users/registrations', 
+    passwords: 'users/passwords'
+  }
+
+  # Wrap the root route inside a devise_scope block
+  devise_scope :user do
+    root to: "home#index", as: :authenticated_root
+    # You can add additional routes if needed
+  end
+
+  # Redirect unauthenticated users to the login page
+  unauthenticated do
+    root to: 'devise/sessions#new', as: :unauthenticated_root
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
