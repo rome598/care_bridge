@@ -1,29 +1,47 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <!-- Email -->
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo electrónico" %>
-  </div>
+<div class="login-container">
+  <div class="row w-100 justify-content-center">
+    <div class="col-md-6 col-12">
+      <div class="form-container">
+        <!-- Imagen dentro de la tarjeta -->
+        <div class="image-container">
+          <img src="<%= asset_path('logo.png') %>" alt="Login image" class="login-image" />
+        </div>
 
-  <!-- Password -->
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Contraseña" %>
-  </div>
+        <h2 class="text-center text-custom">Iniciar sesión</h2>
+        <p class="suggestion-text text-center">Accede a tu cuenta para continuar.</p>
 
-  <!-- Remember Me -->
-  <% if devise_mapping.rememberable? %>
-    <div class="form-check">
-      <%= f.check_box :remember_me, class: "form-check-input" %>
-      <%= f.label :remember_me, class: "form-check-label" %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <!-- Email -->
+          <div class="form-outline mb-4">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control custom-input-login', placeholder: 'Correo electrónico' %>
+          </div>
+
+          <!-- Password -->
+          <div class="form-outline mb-4">
+            <%= f.password_field :password, autocomplete: "current-password", class: 'form-control custom-input-login', placeholder: 'Contraseña' %>
+          </div>
+
+          <!-- Recuérdame -->
+          <% if devise_mapping.rememberable? %>
+            <div class="form-check mb-4 text-center">
+              <%= f.check_box :remember_me, class: "form-check-input" %>
+              <%= f.label :remember_me, "Recuérdame", class: "form-check-label" %>
+            </div>
+          <% end %>
+
+          <!-- Submit button -->
+          <div class="text-center">
+            <%= f.submit "Iniciar sesión", class: 'btn btn-submit' %>
+          </div>
+        <% end %>
+
+        <div class="text-center mt-3">
+          <p><%= link_to "¿Olvidaste tu contraseña?", new_user_password_path, class: "link-custom" %> | 
+             <%= link_to "Regístrate", new_user_registration_path, class: "link-custom" %></p>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <!-- Submit button -->
-  <div class="form-group">
-    <%= f.submit "Iniciar sesión", class: "btn btn-primary" %>
   </div>
-<% end %>
-
-<%= link_to "¿Olvidaste tu contraseña?", new_user_password_path %> |
-<%= link_to "Regístrate", new_user_registration_path %>
+</div>

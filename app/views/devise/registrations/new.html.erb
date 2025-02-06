@@ -1,35 +1,39 @@
 <div class="signup-container">
-  <div class="form-container">
-    <h2 class="text-center text-custom">Regístrate</h2>
-    <p class="suggestion-text text-center">¡Únete a nuestra comunidad para obtener acceso a todas las funcionalidades!</p>
+  <div class="row w-100 justify-content-center">
+    <div class="col-md-6 col-12">
+      <div class="form-container">
+        <!-- Imagen dentro de la tarjeta -->
+        <div class="image-container">
+          <img src="<%= asset_path('logo.png') %>" alt="Sign up image" class="signup-image" />
+        </div>
+        
+        <h2 class="text-center text-custom">Regístrate</h2>
+        <p class="suggestion-text text-center">Por favor, completa el formulario para crear tu cuenta.</p>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-floating mb-3">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email' %>
-        <label for="email">Email</label>
+          <div class="form-outline mb-4">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control custom-input', placeholder: 'Email' %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= f.password_field :password, autocomplete: "new-password", class: 'form-control custom-input', placeholder: 'Contraseña' %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control custom-input', placeholder: 'Confirmar Contraseña' %>
+          </div>
+
+          <div class="text-center">
+            <%= f.submit "Regístrate", class: 'btn btn-submit' %>
+          </div>
+        <% end %>
+
+        <div class="text-center mt-3">
+          <p>¿Ya tienes cuenta? <%= link_to 'Inicia sesión', new_user_session_path, class: 'link-custom' %></p>
+        </div>
       </div>
-
-      <div class="form-floating mb-3">
-        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Contraseña' %>
-        <label for="password">Contraseña</label>
-      </div>
-
-      <div class="form-floating mb-3">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Confirmar Contraseña' %>
-        <label for="password_confirmation">Confirmar Contraseña</label>
-      </div>
-
-      <div class="text-center">
-        <%= f.submit "Regístrate", class: 'btn btn-submit' %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="image-container">
-    <img src="<%= asset_path('logo.png') %>" alt="Sign up image" class="signup-image" />
+    </div>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>
