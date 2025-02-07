@@ -25,9 +25,9 @@
 
           <!-- Recuérdame -->
           <% if devise_mapping.rememberable? %>
-            <div class="form-check mb-4 text-center">
+            <div class="form-check mb-4" style="max-width: 300px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
               <%= f.check_box :remember_me, class: "form-check-input" %>
-              <%= f.label :remember_me, "Recuérdame", class: "form-check-label" %>
+              <%= f.label :remember_me, "Recuérdame", class: "form-check-label", style: "margin-left: 10px;" %>
             </div>
           <% end %>
 
