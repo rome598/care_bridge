@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Archivo custom.js cargado correctamente.");
-  
     const toggleButton = document.getElementById('toggle-btn');
     const sidebar = document.getElementById('sidebar');
   
